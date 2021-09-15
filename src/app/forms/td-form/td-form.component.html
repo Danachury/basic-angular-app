@@ -1,0 +1,33 @@
+<form (ngSubmit)="onSubmit()" #tdForm="ngForm">
+   <div class="form-group">
+      <label for="email">Email</label>
+      <input class="form-control"
+             id="email"
+             name="email"
+             placeholder="Enter email"
+             ngModel
+             #email="ngModel"
+             email
+             required>
+      <small *ngIf="email.invalid && email.touched" class="form-text text-muted">Please enter a valid email.</small>
+   </div>
+   <div class="form-group">
+      <label for="password">Password</label>
+      <input class="form-control"
+             id="password"
+             name="password"
+             type="password"
+             placeholder="Password"
+             ngModel
+             #password="ngModel"
+             required>
+      <small *ngIf="password.invalid && password.touched" class="form-text text-muted">Please enter password.</small>
+   </div>
+   <div class="form-group">
+      <label for="select">Subscription</label>
+      <select name="select" id="select" class="form-control" [ngModel]="subscriptions[1]" required>
+         <option *ngFor="let sub of subscriptions" [value]="sub">{{ sub }}</option>
+      </select>
+   </div>
+   <button class="btn btn-primary" [disabled]="tdForm.invalid">Submit</button>
+</form>

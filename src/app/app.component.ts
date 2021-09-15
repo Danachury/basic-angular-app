@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'my-first-app';
+
+  title = 'basic-angular-app'
+  gameControlValue: number
+
+  get isEven(): boolean {
+    return this.gameControlValue % 2 == 0
+  }
+
+  get isOdd(): boolean {
+    return this.isValidValue && !this.isEven
+  }
+
+  get isValidValue(): boolean {
+    return !!this.gameControlValue
+  }
 }

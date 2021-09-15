@@ -1,0 +1,6 @@
+<button class="btn btn-dark" (click)="onToggleDisplayDetails()">Display Details</button>
+<p *ngIf="displayDetails">Secret Password = tuna</p>
+<h6 *ngFor="let h of clicksHistory; index as i" [ngClass]="{ 'color-white': i >= 4 }"
+   [ngStyle]="{ 'background-color': i >= 4 ? 'blue' : 'none' }">
+   Displayed: {{ h.displayed }} <span>At: {{ h.at | date:'mm:ss' }}</span>
+</h6>
